@@ -20,14 +20,14 @@ public class Boy {
 
         g2.setStroke(new BasicStroke((float)(6 * scale)));
 
-        // ---------- ГОЛОВА (чуть больше) ----------
+        // Голова
         g2.setColor(new Color(255, 205, 170));
         g2.fill(new Ellipse2D.Double(
                 x + 22 * scale, y,
                 44 * scale, 44 * scale
         ));
 
-        // ---------- КЕПКА ----------
+        // Кепка
         g2.setColor(new Color(220, 60, 60));
         // верх
         g2.fill(new Ellipse2D.Double(
@@ -41,7 +41,7 @@ public class Boy {
                 10, 10
         ));
 
-        // ---------- ТЕЛО (короче) ----------
+        // тело
         g2.setColor(new Color(50, 130, 210));
         g2.fill(new RoundRectangle2D.Double(
                 x + 20 * scale, y + 42 * scale,
@@ -49,7 +49,7 @@ public class Boy {
                 25, 25
         ));
 
-        // ---------- ШОРТЫ ----------
+        // шорты
         g2.setColor(new Color(235, 90, 70));
         g2.fill(new RoundRectangle2D.Double(
                 x + 22 * scale, y + 88 * scale,
@@ -57,20 +57,20 @@ public class Boy {
                 15, 15
         ));
 
-        // ---------- ЛЕВАЯ РУКА (держит змея) ----------
+        // Левая рука
         g2.setColor(new Color(255, 205, 170));
         g2.drawLine(
                 (int)(x + 68 * scale), (int)(y + 55 * scale),
                 (int)(x + 100 * scale), (int)(y + 20 * scale)
         );
 
-        // ---------- ПРАВАЯ РУКА (вниз) ----------
+        // правая рука
         g2.drawLine(
                 (int)(x + 22 * scale), (int)(y + 55 * scale),
                 (int)(x + 10 * scale), (int)(y + 95 * scale)
         );
 
-        // ---------- НОГИ (чуть длиннее) ----------
+        // ноги
         g2.fill(new RoundRectangle2D.Double(
                 x + 26 * scale, y + 112 * scale,
                 12 * scale, 40 * scale,
@@ -82,7 +82,7 @@ public class Boy {
                 10, 10
         ));
 
-        // ---------- ОБУВЬ ----------
+        // обувь
         g2.setColor(new Color(60, 60, 60));
         g2.fill(new RoundRectangle2D.Double(
                 x + 22 * scale, y + 150 * scale,

@@ -11,8 +11,8 @@ public class SceneFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         setSize(WIDTH, HEIGHT);
-        setResizable(false);         // нельзя растягивать/уменьшать
-        setLocationRelativeTo(null); // центр экрана
+        setResizable(false);
+        setLocationRelativeTo(null);
 
         add(new ScenePanel());
 

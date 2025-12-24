@@ -16,7 +16,7 @@ public class Tree {
 
     public void draw(Graphics2D g2) {
 
-        // ---- СТВОЛ ----
+        // ствол
         g2.setColor(new Color(120, 80, 50)); // коричневый
         int trunkWidth = (int)(25 * scale);
         int trunkHeight = (int)(60 * scale);
@@ -28,7 +28,7 @@ public class Tree {
                 trunkHeight
         );
 
-        // ---- КРОНА — 3 одинаковых треугольника ----
+        // крона
         g2.setColor(new Color(30, 140, 30)); // зелёный как на рисунке
 
         int triWidth = (int)(140 * scale);   // ширина треугольника
@@ -53,20 +53,19 @@ public class Tree {
         );
     }
 
-    /** Рисует равнобедренный треугольник */
     private void drawTriangle(Graphics2D g2, int centerX, int baseY, int width, int height) {
         int half = width / 2;
 
         int[] xPoints = {
-                centerX - half, // левый
-                centerX + half, // правый
-                centerX         // верхушка
+                centerX - half,
+                centerX + half,
+                centerX
         };
 
         int[] yPoints = {
-                baseY,          // низ
-                baseY,          // низ
-                baseY - height  // вершина
+                baseY,
+                baseY,
+                baseY - height
         };
 
         g2.fillPolygon(xPoints, yPoints, 3);

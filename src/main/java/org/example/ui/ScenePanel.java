@@ -17,7 +17,7 @@ public class ScenePanel extends JPanel {
 
     private Boy boy = new Boy(240, 530, 1.2);
 
-    // 👉 точка руки мальчика (НЕ ДВИГАЕТСЯ)
+    // точка руки
     private Kite kite = new Kite(
             (int) (280 + 68 * 1.2),
             (int) (490 + 55 * 1.2),
@@ -59,11 +59,11 @@ public class ScenePanel extends JPanel {
         int w = getWidth();
         int h = getHeight();
 
-        // ---------- НЕБО ----------
+        // небо
         g2.setColor(new Color(135, 206, 235));
         g2.fillRect(0, 0, w, h);
 
-        // ---------- ФОН ----------
+        // фон
         sun.draw(g2, w, h);
         clouds.draw(g2);
 
@@ -71,7 +71,7 @@ public class ScenePanel extends JPanel {
         tree2.draw(g2);
         tree3.draw(g2);
 
-        // ---------- ХОЛМЫ ----------
+        // холмы
         g2.setColor(new Color(70, 150, 60));
         g2.fill(new Ellipse2D.Double(-200, h - 290, 1200, 400));
 
@@ -81,7 +81,7 @@ public class ScenePanel extends JPanel {
         g2.setColor(new Color(90, 200, 80));
         g2.fill(new Ellipse2D.Double(-330, h - 180, 1000, 300));
 
-        // ---------- ПЕРЕДНИЙ ПЛАН ----------
+        // передний план
         boy.draw(g2);
         kite.draw(g2);
 

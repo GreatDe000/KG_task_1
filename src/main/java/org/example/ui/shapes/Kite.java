@@ -29,20 +29,19 @@ public class Kite {
 
     public void draw(Graphics2D g2) {
 
-        // ---------- СМЕЩЕНИЕ ЗМЕЯ ОТ ТОЧКИ ----------
+        // смещения змея
         int offsetX = (int)(Math.sin(swing) * 15);
         int offsetY = (int)(Math.cos(swing) * 10);
 
         int kiteX = (int)(x + 80 * scale + offsetX);
         int kiteY = (int)(y - 160 * scale + offsetY);
 
-
-        // ---------- НИТЬ ----------
+        // нить
         g2.setColor(new Color(40, 90, 70));
         g2.setStroke(new BasicStroke(2));
         g2.drawLine(x, y, kiteX, kiteY);
 
-        // ---------- ТЕЛО ЗМЕЯ (ромб) ----------
+        // тело змея
         Path2D body = new Path2D.Double();
         body.moveTo(kiteX, kiteY - 22 * scale);
         body.lineTo(kiteX + 22 * scale, kiteY);
@@ -53,7 +52,7 @@ public class Kite {
         g2.setColor(new Color(245, 200, 80));
         g2.fill(body);
 
-        // ---------- ЦВЕТНОЙ СЕКТОР ----------
+        // цвет
         g2.setColor(new Color(220, 80, 60));
         g2.fillPolygon(
                 new int[]{
@@ -69,7 +68,7 @@ public class Kite {
                 3
         );
 
-        // ---------- ХВОСТ ----------
+        // хвост
         g2.setStroke(new BasicStroke(2));
         g2.drawLine(
                 kiteX,

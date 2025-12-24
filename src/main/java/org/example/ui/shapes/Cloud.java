@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Cloud {
 
-    // смещения по X (НЕ абсолютные координаты!)
+    // смещения по X
     private double x1 = 0;
     private double x2 = 0;
     private double x3 = 0;
@@ -16,13 +16,13 @@ public class Cloud {
     private final double v3 = 0.5;
     private final double v4 = 0.75;
 
-    // базовые X (как у тебя были в рисовании)
+    // базовые X
     private final int base1 = 80;
     private final int base2 = 350;
     private final int base3 = 520;
     private final int base4 = 180;
 
-    // примерные ширины “композиций” облаков
+    // примерные ширины
     private final int W1 = 260;
     private final int W2 = 280;
     private final int W3 = 180;
@@ -36,7 +36,7 @@ public class Cloud {
         x3 += v3;
         x4 += v4;
 
-        // переносим только когда левый край облака ушёл за правую границу
+        // перенос облака только когда левый край ушёл за правую границу
         if (base1 + x1 > w) x1 = -(base1 + W1);
         if (base2 + x2 > w) x2 = -(base2 + W2);
         if (base3 + x3 > w) x3 = -(base3 + W3);

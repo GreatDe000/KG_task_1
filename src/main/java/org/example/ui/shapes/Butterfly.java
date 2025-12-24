@@ -12,10 +12,10 @@ public class Butterfly {
     private double scale;
 
     // движение
-    private double vx;              // скорость по X (со знаком)
-    private double t = 0;           // время для синусов
+    private double vx;
+    private double t = 0;
 
-    // "рандомная" траектория по Y
+    // рандомная траектория по Y
     private double amp1, amp2;      // амплитуды
     private double f1, f2;          // частоты
     private double phase1, phase2;  // фазы
@@ -25,28 +25,23 @@ public class Butterfly {
         this.baseY = y;
         this.scale = scale;
 
-        // скорость: 1.5..3.5 (вправо по умолчанию, можно рандомить направление)
+        // скорость
         this.vx = 1.5 + RND.nextDouble() * 2.0;
 
-        // параметры "случайной" траектории
-        this.amp1 = 6 + RND.nextDouble() * 10;      // 6..16
-        this.amp2 = 3 + RND.nextDouble() * 8;       // 3..11
-        this.f1 = 0.06 + RND.nextDouble() * 0.06;   // 0.06..0.12
-        this.f2 = 0.10 + RND.nextDouble() * 0.10;   // 0.10..0.20
+        // параметры случайной траектории
+        this.amp1 = 6 + RND.nextDouble() * 10;
+        this.amp2 = 3 + RND.nextDouble() * 8;
+        this.f1 = 0.06 + RND.nextDouble() * 0.06;
+        this.f2 = 0.10 + RND.nextDouble() * 0.10;
         this.phase1 = RND.nextDouble() * Math.PI * 2;
         this.phase2 = RND.nextDouble() * Math.PI * 2;
     }
 
-    /**
-     * Обновление с учетом ширины окна:
-     * бабочка летит слева направо, у границы разворачивается.
-     */
     public void update(int panelWidth) {
         t += 1;
-
         x += vx;
 
-        // границы с небольшим отступом (примерно под размер крыльев)
+        // границы с небольшим отступом
         double left = 0;
         double right = panelWidth - 30 * scale;
 
@@ -61,7 +56,7 @@ public class Butterfly {
         }
     }
 
-    // На развороте чуть меняем траекторию, чтобы выглядело живее
+    // На развороте меняет траекторию
     private void randomizePathALittle() {
         amp1 = 6 + RND.nextDouble() * 10;
         amp2 = 3 + RND.nextDouble() * 8;
