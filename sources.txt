@@ -1,0 +1,11 @@
+src/main/java/org/example/ui/shapes/Tree.java
+src/main/java/org/example/ui/shapes/Bush.java
+src/main/java/org/example/ui/shapes/Butterfly.java
+src/main/java/org/example/ui/shapes/Kite.java
+src/main/java/org/example/ui/shapes/Boy.java
+src/main/java/org/example/ui/shapes/Sun.java
+src/main/java/org/example/ui/shapes/Background.java
+src/main/java/org/example/ui/shapes/Cloud.java
+src/main/java/org/example/ui/SceneFrame.java
+src/main/java/org/example/ui/ScenePanel.java
+src/main/java/org/example/Main.java

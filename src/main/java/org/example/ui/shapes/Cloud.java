@@ -2,67 +2,49 @@ package org.example.ui.shapes;
 
 import java.awt.*;
 
+/**
+ * Одно облако. Каждый экземпляр имеет свои координаты и скорость.
+ */
 public class Cloud {
 
-    // смещения по X
-    private double x1 = 0;
-    private double x2 = 0;
-    private double x3 = 0;
-    private double x4 = 0;
+    private double x;
+    private final int y;
+    private final double scale;
+    private final double vx;
 
-    // скорости
-    private final double v1 = 0.6;
-    private final double v2 = 0.9;
-    private final double v3 = 0.5;
-    private final double v4 = 0.75;
+    // приблизительная ширина облака, чтобы понимать когда оно полностью ушло
+    private final int approxWidth;
 
-    // базовые X
-    private final int base1 = 80;
-    private final int base2 = 350;
-    private final int base3 = 520;
-    private final int base4 = 180;
+    public Cloud(double x, int y, double scale, double vx) {
+        this.x = x;
+        this.y = y;
+        this.scale = scale;
+        this.vx = vx;
+        this.approxWidth = (int) (280 * scale);
+    }
 
-    // примерные ширины
-    private final int W1 = 260;
-    private final int W2 = 280;
-    private final int W3 = 180;
-    private final int W4 = 260;
+    public void update(int panelWidth) {
+        x += vx;
+        if (panelWidth <= 0) {
+            return;
+        }
 
-    public void update(int w) {
-        if (w <= 0) return;
-
-        x1 += v1;
-        x2 += v2;
-        x3 += v3;
-        x4 += v4;
-
-        // перенос облака только когда левый край ушёл за правую границу
-        if (base1 + x1 > w) x1 = -(base1 + W1);
-        if (base2 + x2 > w) x2 = -(base2 + W2);
-        if (base3 + x3 > w) x3 = -(base3 + W3);
-        if (base4 + x4 > w) x4 = -(base4 + W4);
+        // если облако полностью ушло за правую границу — переносим влево
+        if (x - approxWidth > panelWidth) {
+            x = -approxWidth;
+        }
     }
 
     public void draw(Graphics2D g2) {
         g2.setColor(Color.WHITE);
 
-        // облако 1
-        g2.fillOval(base1 + (int)x1, 120, 120, 60);
-        g2.fillOval(base1 + 60 + (int)x1, 100, 140, 80);
-        g2.fillOval(base1 + 120 + (int)x1, 120, 120, 60);
+        int xi = (int) x;
+        int w1 = (int) (120 * scale);
+        int h1 = (int) (60 * scale);
 
-        // облако 2
-        g2.fillOval(base2 + (int)x2, 80, 130, 65);
-        g2.fillOval(base2 + 50 + (int)x2, 60, 150, 85);
-        g2.fillOval(base2 + 120 + (int)x2, 80, 130, 65);
-
-        // облако 3
-        g2.fillOval(base3 + (int)x3, 150, 100, 50);
-        g2.fillOval(base3 + 40 + (int)x3, 135, 110, 55);
-
-        // облако 4 (новое)
-        g2.fillOval(base4 + (int)x4, 60, 110, 55);
-        g2.fillOval(base4 + 55 + (int)x4, 45, 135, 70);
-        g2.fillOval(base4 + 130 + (int)x4, 60, 110, 55);
+        // 3 «пузыря» как простое облачко
+        g2.fillOval(xi, y, w1, h1);
+        g2.fillOval(xi + (int) (55 * scale), y - (int) (20 * scale), (int) (150 * scale), (int) (85 * scale));
+        g2.fillOval(xi + (int) (140 * scale), y, (int) (120 * scale), (int) (60 * scale));
     }
 }

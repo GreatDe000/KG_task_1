@@ -29,12 +29,7 @@ public class Butterfly {
         this.vx = 1.5 + RND.nextDouble() * 2.0;
 
         // параметры случайной траектории
-        this.amp1 = 6 + RND.nextDouble() * 10;
-        this.amp2 = 3 + RND.nextDouble() * 8;
-        this.f1 = 0.06 + RND.nextDouble() * 0.06;
-        this.f2 = 0.10 + RND.nextDouble() * 0.10;
-        this.phase1 = RND.nextDouble() * Math.PI * 2;
-        this.phase2 = RND.nextDouble() * Math.PI * 2;
+        randomizePathALittle();
     }
 
     public void update(int panelWidth) {
